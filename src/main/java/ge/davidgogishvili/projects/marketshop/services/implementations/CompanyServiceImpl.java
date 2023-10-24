@@ -35,13 +35,13 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public Company createCompany(Integer companyId, CompanyCreateModel companyCreateModel) {
 
-        Company company = new Company();
-        company.setCompanyId(companyId);
-        company.setName(companyCreateModel.originalName());
+        var company  = new Company();
+        company.setOriginalName(companyCreateModel.originalName());
         company.setParentId(companyCreateModel.parentId());
         company.setCountryId(companyCreateModel.countryId());
         companyRepo.save(company);
         return company;
+
     }
 
     @Override

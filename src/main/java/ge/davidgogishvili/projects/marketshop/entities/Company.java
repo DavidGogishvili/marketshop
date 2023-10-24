@@ -1,9 +1,11 @@
 package ge.davidgogishvili.projects.marketshop.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,12 +18,12 @@ public class Company {
     @SequenceGenerator(name="companies_seq-generator", sequenceName="companies_id_seq", allocationSize = 1)
     private Integer id;
 
-    @JsonProperty("იდენტიფიკატორი")
+//    @JsonProperty("იდენტიფიკატორი")
     @Column (name = "parent_id")
-    private String parentId;
+    private Integer parentId;
 
     @Column (name = "country_id")
-    private String countryId;
+    private Integer countryId;
 
     @Column (name = "name")
     private String originalName;
@@ -30,37 +32,19 @@ public class Company {
     private String nameGeo;
 
     @Column (name = "active")
-    private String active;
+    private Boolean active;
 
     @Column (name = "changed_by")
-    private String changedBy;
+    private Integer changedBy;
 
     @Column (name = "changed_at")
-    private String changedAt;
+    private LocalDateTime changedAt;
 
     @Column (name = "created_by")
-    private String createdBy;
+    private Integer createdBy;
 
     @Column (name = "created_at")
-    private String createdAt;
-
-
-    public void setCompanyId(Integer companyId) {
-    }
-
-
-    public void setName(String originalName) {
-    }
-
-    public void setParentId(String parentId) {
-
-    }
-
-    public void setCountryId(String countryId) {
-
-    }
-
-
+    private LocalDateTime createdAt;
 
 
 }

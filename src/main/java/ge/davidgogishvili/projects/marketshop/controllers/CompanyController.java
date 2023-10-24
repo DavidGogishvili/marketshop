@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 
+
 public class CompanyController {
 
 
@@ -36,7 +37,7 @@ public class CompanyController {
     }
 
 
-    @PostMapping("{companyId}/create")
+    @PostMapping("createCompany/{companyId}/create")
     public Company createCompany(@PathVariable Integer companyId, @RequestBody CompanyCreateModel companyCreateModel) {
         return companyService.createCompany(companyId, companyCreateModel);
     }
