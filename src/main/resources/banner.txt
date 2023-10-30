@@ -4,5 +4,4 @@
  | |_| | (_| |\ V /
  |____/ \__,_| \_/
 
-${application.title} ${application.version}
-Powered by Spring Boot ${spring-boot.versiaraon}
+(c) powered By David Gogishvili
