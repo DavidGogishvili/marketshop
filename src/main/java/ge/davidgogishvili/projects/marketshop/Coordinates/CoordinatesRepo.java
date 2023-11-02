@@ -1,6 +1,5 @@
-package ge.davidgogishvili.projects.marketshop.repositories;
+package ge.davidgogishvili.projects.marketshop.Coordinates;
 
-import ge.davidgogishvili.projects.marketshop.entities.Coordinate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CoordinatesRepo extends JpaRepository <Coordinate, Integer> {

@@ -1,4 +1,4 @@
-package ge.davidgogishvili.projects.marketshop.entities;
+package ge.davidgogishvili.projects.marketshop.Coordinates;
 
 
 import jakarta.persistence.Entity;

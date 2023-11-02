@@ -1,5 +1,6 @@
 package ge.davidgogishvili.projects.marketshop.controllers;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +14,13 @@ import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("files")
+@RequestMapping("files/upload")
 public class FileManagementController {
 
 
 @GetMapping("getFile")
+@Operation(tags = "File Management", summary = "ტექსტ დოკუმენტის ატვირთვა")
+
 public void getfile () {
     File f = new File("/home/david/Projects/IdeaProjects/Files/test.txt");
 
@@ -40,6 +43,8 @@ public void getfile () {
 
 
     @GetMapping("{filename}")
+    @Operation(tags = "File Management", summary = "ზოგადი ფაილის ატვირთვა")
+
     public ResponseEntity <?> getFile(@PathVariable String filename, HttpServletResponse response) {
         var prefix = "/home/david/Projects/IdeaProjects/Files/";
         File file = new File(prefix + filename);

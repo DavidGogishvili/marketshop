@@ -1,6 +1,6 @@
 package ge.davidgogishvili.projects.marketshop.services;
 
-import ge.davidgogishvili.projects.marketshop.entities.Coordinate;
+import ge.davidgogishvili.projects.marketshop.Coordinates.Coordinate;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
