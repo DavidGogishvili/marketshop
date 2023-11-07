@@ -1,4 +1,4 @@
-package ge.davidgogishvili.projects.marketshop.services;
+package ge.davidgogishvili.projects.marketshop.Coordinates;
 
 import ge.davidgogishvili.projects.marketshop.Coordinates.Coordinate;
 import org.apache.poi.ss.usermodel.Cell;
@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-public class ExcelUploadService {
+public class CoordinateUploadService {
     public static boolean isValidExcelFile(MultipartFile file) {
 
 
@@ -37,7 +37,7 @@ public class ExcelUploadService {
                 }
                 Iterator<Cell> cellIterator = row.iterator();
                 int cellIndex = 0;
-                                Coordinate coordinate = new Coordinate();
+                Coordinate coordinate = new Coordinate();
 
                 while (cellIterator.hasNext()){
                     Cell cell = cellIterator.next();
@@ -45,6 +45,8 @@ public class ExcelUploadService {
                         case 0  -> coordinate.setId((int) cell.getNumericCellValue());
                         case 1 -> coordinate.setLongtitude(cell.getNumericCellValue());
                         case 2 -> coordinate.setLatitude(cell.getNumericCellValue());
+                        case 3 -> coordinate.setNumber(cell.getStringCellValue());
+                        case 4 -> coordinate.setLast_contact_date(cell.getLocalDateTimeCellValue());
                         default ->  {
 
                         }

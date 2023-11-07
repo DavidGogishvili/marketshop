@@ -17,19 +17,15 @@ public class CoordinateController {
 
 
     private CoordinateService coordinateService;
-    @PostMapping("/uploadExcel")
-    @Operation(tags = "File Management", summary = "ექსელის ფაილის ატვირთვა")
+    @PostMapping("/getCootdinates")
+    @Operation(tags = "File Management", summary = "ექსელის ფაილის ატვირთვა და ბაზაში შენახვა მონაცემების (ამ შემთხვევაში კოორდინატებზე მაქვს გაკეთებული)")
 
     public ResponseEntity <?> uploadCoordinates(@RequestParam("file")MultipartFile file){
         this.coordinateService.saveCoordinatesToDatabase(file);
         return ResponseEntity.ok(Map.of("Message", "არიქა ბიჯო, ეიტვირთა!"));
     }
 
-    @GetMapping("/getCootdinates")
-    @Operation(tags = "Coordinates", summary = "ატვირთული ექსელ ფაილიდან მასალების ამოღება და ბაზაში ატვირთვა ცალკე ცხრილად (ამ შემთხვევაში კოორდინატებზე მაქვს გაკეთებული)")
 
-    public ResponseEntity <List<Coordinate>> getCoordinates () {
-        return new ResponseEntity<>(coordinateService.getCoordinates(), HttpStatus.FOUND);
-    }
+
 
 }

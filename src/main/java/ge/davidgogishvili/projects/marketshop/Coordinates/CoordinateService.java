@@ -1,7 +1,7 @@
 package ge.davidgogishvili.projects.marketshop.Coordinates;
 
-import ge.davidgogishvili.projects.marketshop.services.ExcelUploadService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,9 +15,9 @@ public class CoordinateService {
     private CoordinatesRepo coordinatesRepo;
 
     public void saveCoordinatesToDatabase (MultipartFile file) {
-        if (ExcelUploadService.isValidExcelFile(file)) {
+        if (CoordinateUploadService.isValidExcelFile(file)) {
             try {
-                List<Coordinate> coordinates = ExcelUploadService.getCoordinatesDataFromExcel(file.getInputStream());
+                List<Coordinate> coordinates = CoordinateUploadService.getCoordinatesDataFromExcel(file.getInputStream());
                 this.coordinatesRepo.saveAll(coordinates);
             } catch (IOException e) {
                 try {
@@ -27,8 +27,5 @@ public class CoordinateService {
                 }
             }
         }
-    }
-    public List<Coordinate> getCoordinates(){
-        return coordinatesRepo.findAll();
     }
 }
